@@ -1,0 +1,33 @@
+Loading artifact: benchmark_data/benchmark_results.json...
+
+==================== VERIFYING THEOREM 1: SCALABILITY ====================
+Claim: Query latency is O(1) with respect to result set size (limit).
+
+[Limit   1] Mean Latency: 4.84 ms
+[Limit 100] Mean Latency: 6.23 ms
+Delta: 1.40 ms over 100x scale factor
+
+>>> RESULT: PASSED (Delta < 2ms confirms O(1) index seek dominance)
+
+==================== VERIFYING THEOREM 3: SAFETY COMPLIANCE ====================
+Claim: Topological Firewall rejects 100% of invalid entity requests.
+
+[Ghost Protocol]        Trials: 50 | Blocked: 50 | Pass Rate: 100.0%
+[Hallucination Protocol] Trials: 50 | Blocked: 50 | Pass Rate: 100.0%
+
+>>> RESULT: PASSED (100% Safety Compliance Verified)
+
+==================== VERIFYING REAL-WORLD JITTER ====================
+Claim: Data reflects realistic network conditions (outliers present).
+
+Total Trials: 100
+Median (P50): 3.77 ms
+Mean:         4.22 ms
+Max Spike:    31.27 ms
+Outliers Detected (>3x median): 1
+
+>>> RESULT: VERIFIED (Realistic variance/outliers detected)
+
+============================================================
+VERIFICATION COMPLETE
+Log file written to: /media/abi/ext_nvme1/HSK-GraphRAG/experiments/results.log
